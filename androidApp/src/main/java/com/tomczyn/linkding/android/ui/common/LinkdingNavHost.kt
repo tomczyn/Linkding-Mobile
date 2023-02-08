@@ -5,8 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.tomczyn.linkding.android.ui.greeting.greetingGraph
-import com.tomczyn.linkding.android.ui.greeting.greetingRoute
+import com.tomczyn.linkding.android.ui.login.loginGraph
+import com.tomczyn.linkding.android.ui.login.loginRoute
 
 @Composable
 fun LinkdingNavHost(
@@ -16,9 +16,9 @@ fun LinkdingNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = greetingRoute,
+        startDestination = loginRoute,
     ) {
-        greetingGraph()
+        loginGraph()
     }
 }
 
