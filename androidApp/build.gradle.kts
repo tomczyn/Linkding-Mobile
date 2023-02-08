@@ -72,13 +72,13 @@ configurations.configureEach {
     }
 }
 
-tasks.whenTaskAdded {
-    if (name.contains("assemble") &&
-        name.contains("Release")
-    ) {
-        dependsOn("checkReleaseVersion")
-    }
-}
+//tasks.whenTaskAdded {
+//    if (name.contains("assemble") &&
+//        name.contains("Release")
+//    ) {
+//        dependsOn("checkReleaseVersion")
+//    }
+//}
 
 tasks.register("checkReleaseVersion") {
     val versionName = android.defaultConfig.versionName
