@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -26,6 +27,8 @@ kotlin {
         val commonMain by getting
         val commonTest by getting {
             dependencies {
+                implementation(libs.bundles.ktor)
+                implementation(libs.kotlinx.serialization.json)
                 implementation(kotlin("test"))
             }
         }
