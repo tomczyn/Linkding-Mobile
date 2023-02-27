@@ -27,6 +27,7 @@ kotlin {
         val commonMain by getting
         val commonTest by getting {
             dependencies {
+                api(libs.koin.core)
                 implementation(libs.bundles.ktor)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(kotlin("test"))
@@ -60,6 +61,5 @@ android {
     compileSdk = 33
     defaultConfig {
         minSdk = 29
-        targetSdk = 33
     }
 }

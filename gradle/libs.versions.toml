@@ -36,7 +36,7 @@ kotlin = "1.8.0"
 kotlinxCoroutines = "1.6.4"
 kotlinxDatetime = "0.4.0"
 kotlinxSerializationJson = "1.5.0-RC"
-ksp = "1.7.21-1.0.8"
+ksp = "1.8.0-1.0.9"
 lint = "30.3.1"
 okhttp = "4.10.0"
 protobuf = "3.21.12"
@@ -51,6 +51,9 @@ junit5-plugin = "1.8.2.1"
 timber = "5.0.1"
 ktlint = "11.0.0"
 ktor = "2.2.3" # https://github.com/ktorio/ktor/releases
+koin = "3.3.3" # https://github.com/InsertKoinIO/koin/tags
+koin-android = "3.3.3" # https://github.com/InsertKoinIO/koin/tags
+koin-compose = "3.4.2" # https://github.com/InsertKoinIO/koin/tags
 
 [libraries]
 accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
@@ -132,6 +135,11 @@ ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = 
 ktor-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref = "ktor" }
 ktor-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin-android" }
+koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin-compose" }
+koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin" }
+koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
