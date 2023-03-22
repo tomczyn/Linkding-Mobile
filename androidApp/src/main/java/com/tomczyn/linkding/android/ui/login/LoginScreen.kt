@@ -44,9 +44,7 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(Dimens.marginDouble))
         HostField(host) { host = it }
         Spacer(modifier = Modifier.height(Dimens.marginHalf))
-        UsernameField(username) { username = it }
-        Spacer(modifier = Modifier.height(Dimens.marginHalf))
-        PasswordField(password) { password = it }
+        TokenField(username) { username = it }
         Spacer(modifier = Modifier.height(Dimens.marginDouble))
         TextButton(onClick = demoClick) { Text("Demo") }
         Spacer(modifier = Modifier.height(Dimens.marginHalf))
@@ -69,28 +67,14 @@ private fun HostField(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun UsernameField(
+private fun TokenField(
     username: String,
     onValueChange: (String) -> Unit
 ) {
     OutlinedTextField(
         value = username,
         onValueChange = onValueChange,
-        label = { Text("Username") },
-    )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun PasswordField(
-    password: String,
-    onValueChange: (String) -> Unit
-) {
-    OutlinedTextField(
-        value = password,
-        onValueChange = onValueChange,
-        label = { Text("Password") },
-        visualTransformation = PasswordVisualTransformation(),
+        label = { Text("Token") },
     )
 }
 

@@ -3,14 +3,13 @@ buildscript {
         google()
         mavenCentral()
     }
-
 }
 
 plugins {
-    id("com.android.application").version("7.4.1").apply(false)
-    id("com.android.library").version("7.4.1").apply(false)
-    kotlin("android").version("1.8.0").apply(false)
-    kotlin("multiplatform").version("1.8.0").apply(false)
+    id("com.android.application").version(libs.versions.androidGradlePlugin.get()).apply(false)
+    id("com.android.library").version(libs.versions.androidGradlePlugin.get()).apply(false)
+    kotlin("android").version(libs.versions.kotlin.get()).apply(false)
+    kotlin("multiplatform").version(libs.versions.kotlin).apply(false)
     alias(libs.plugins.ktlint) apply false
 }
 
