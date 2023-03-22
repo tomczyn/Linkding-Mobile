@@ -11,8 +11,6 @@ import SwiftUI
 
 struct LoginScreen: View {
     
-    var demoClick: () -> Void = {}
-
     @State private var host: String = ""
     @State private var token: String = ""
     @ObservedObject var model: LoginModel
@@ -33,10 +31,6 @@ struct LoginScreen: View {
                     SecureField("Token", text: $token)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Spacer()
-                    Button(action: demoClick) {
-                        Text("Demo")
-                    }
-                    Spacer().frame(height: 20)
                     Button(action: { model.login(host:host, token:token) }) {
                         Text("Login")
                             .foregroundColor(.white)

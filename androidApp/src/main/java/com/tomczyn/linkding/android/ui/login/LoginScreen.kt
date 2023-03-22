@@ -28,14 +28,12 @@ import com.tomczyn.linkding.android.ui.common.theme.Dimens
 @Composable
 fun LoginRoute() {
     LoginScreen(
-        demoClick = { /*TODO*/ },
         loginClick = { _, _ -> /*TODO*/ },
     )
 }
 
 @Composable
 fun LoginScreen(
-    demoClick: () -> Unit = {},
     loginClick: (String, String) -> Unit = { _, _ -> },
 ) {
     AppScreen(
@@ -51,13 +49,7 @@ fun LoginScreen(
             TokenField(username) { username = it }
         }
         Spacer(modifier = Modifier.height(Dimens.marginDouble))
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            TextButton(onClick = demoClick) { Text("Demo") }
-            Spacer(modifier = Modifier.height(Dimens.marginHalf))
-            LoginButton(loginClick = { loginClick(host, username) })
-        }
+        LoginButton(loginClick = { loginClick(host, username) })
     }
 }
 
