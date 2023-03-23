@@ -24,9 +24,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.tomczyn.linkding.android.ui.common.AppScreen
 import com.tomczyn.linkding.android.ui.common.theme.Dimens
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun LoginRoute() {
+    val viewModel: LoginViewModel = koinViewModel()
     LoginScreen(
         loginClick = { _, _ -> /*TODO*/ },
     )

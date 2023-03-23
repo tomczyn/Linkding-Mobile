@@ -12,6 +12,7 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		545269B529CB64F30018432E /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545269B429CB64F30018432E /* LoginScreen.swift */; };
 		545269B729CB69D70018432E /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545269B629CB69D70018432E /* LoginModel.swift */; };
+		54B3041C29CC6A6E00C908ED /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B3041B29CC6A6E00C908ED /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,7 @@
 		545269B229CB64590018432E /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
 		545269B429CB64F30018432E /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		545269B629CB69D70018432E /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		54B3041B29CC6A6E00C908ED /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,14 @@
 			path = login;
 			sourceTree = "<group>";
 		};
+		54B3041A29CC6A5000C908ED /* common */ = {
+			isa = PBXGroup;
+			children = (
+				54B3041B29CC6A6E00C908ED /* UserDefaults.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				54B3041A29CC6A5000C908ED /* common */,
 				545269B329CB64DA0018432E /* login */,
 				545269B229CB64590018432E /* iosApp.entitlements */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
@@ -173,7 +184,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		7555FFB5242A651A00829871 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -184,7 +195,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
 		};
@@ -195,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54B3041C29CC6A6E00C908ED /* UserDefaults.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				545269B729CB69D70018432E /* LoginModel.swift in Sources */,
 				545269B529CB64F30018432E /* LoginScreen.swift in Sources */,
