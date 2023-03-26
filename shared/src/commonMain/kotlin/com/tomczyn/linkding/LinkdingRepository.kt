@@ -14,8 +14,15 @@ import io.ktor.client.request.*
 
 class LinkdingRepository(
     private val httpClient: HttpClient,
-    private val baseUrl: String
+    private val settings: Settings
 ) {
+
+    private val baseUrl: String
+        get() = settings.getString("host")!!.run {
+            if (last().toString() == "/") removeSuffix("/")
+            else this
+        }
+
     suspend fun getBookmarks(
         search: String? = null,
         tags: List<String>? = null,

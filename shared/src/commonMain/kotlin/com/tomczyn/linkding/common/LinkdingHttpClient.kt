@@ -1,6 +1,10 @@
 package com.tomczyn.linkding.common
 
+import com.tomczyn.linkding.LinkdingSettings
+import com.tomczyn.linkding.Settings
+import com.tomczyn.linkding.getString
 import io.ktor.client.*
+import io.ktor.client.engine.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.auth.*
@@ -13,9 +17,13 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 
+expect fun provideEngine(): HttpClientEngineFactory<*>
+
 @Suppress("FunctionName")
 @OptIn(ExperimentalSerializationApi::class)
-fun LinkdingHttpClient(): HttpClient = HttpClient(CIO) {
+fun LinkdingHttpClient(
+    settings: Settings
+): HttpClient = HttpClient(provideEngine()) {
     install(Logging) {
         logger = object : Logger {
             override fun log(message: String) {
@@ -39,16 +47,12 @@ fun LinkdingHttpClient(): HttpClient = HttpClient(CIO) {
             contentType = ContentType.Application.Json
         )
     }
-    install(Auth) {
-        bearer {
-            loadTokens {
-                BearerTokens(
-                    accessToken = TODO(),
-                    refreshToken = TODO()
-                )
-            }
+    defaultRequest {
+        contentType(ContentType.Application.Json)
+        header(HttpHeaders.Authorization, "Token ${settings.getString(LinkdingSettings.TOKEN)}")
+        url {
+            host = settings.getString(LinkdingSettings.HOST) ?: ""
         }
     }
-    defaultRequest { contentType(ContentType.Application.Json) }
     install(HttpTimeout) { requestTimeoutMillis = 3000 }
 }

@@ -56,7 +56,6 @@ internal suspend inline fun <reified RES : Any, reified ERR : Any> HttpClient.ge
     builder: HttpRequestBuilder.() -> Unit = {}
 ): Response<ERR, RES> = request {
     get(url) {
-        setBody(Json.encodeToString(""))
         builder()
     }
 }

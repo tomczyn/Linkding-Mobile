@@ -12,6 +12,5 @@ data class TagsResponse(
 
 @Serializable
 data class Tag(
-    val name: String,
-    val slug: String
+    val name: String
 )

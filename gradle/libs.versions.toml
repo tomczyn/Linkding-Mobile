@@ -12,7 +12,7 @@ androidxCore = "1.9.0" # https://developer.android.com/jetpack/androidx/releases
 androidxCoreSplashscreen = "1.0.0" # https://developer.android.com/jetpack/androidx/releases/core
 androidxDataStore = "1.0.0" # https://developer.android.com/jetpack/androidx/releases/datastore
 androidxEspresso = "3.5.1" # https://maven.google.com/web/index.html?q=espresso-core#androidx.test.espresso:espresso-core
-androidxLifecycle = "2.6.0" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidxLifecycle = "2.6.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
 androidxMacroBenchmark = "1.1.1" # https://developer.android.com/jetpack/androidx/releases/benchmark
 androidxMetrics = "1.0.0-alpha03" # https://maven.google.com/web/index.html?q=metrics-per#androidx.metrics:metrics-performance
 androidxNavigation = "2.5.3" # https://developer.android.com/jetpack/androidx/releases/navigation
@@ -45,7 +45,7 @@ junit5 = "5.9.2" # https://github.com/junit-team/junit5/releases
 junit5-plugin = "1.8.2.1" # https://github.com/mannodermaus/android-junit5/releases
 timber = "5.0.1" # https://github.com/JakeWharton/timber/releases
 ktlint = "11.3.1" # https://github.com/JLLeitschuh/ktlint-gradle/releases
-ktor = "2.2.3" # https://github.com/ktorio/ktor/releases
+ktor = "2.2.4" # https://github.com/ktorio/ktor/releases
 koin = "3.3.3" # https://github.com/InsertKoinIO/koin/tags
 koin-android = "3.3.3" # https://github.com/InsertKoinIO/koin/tags
 koin-compose = "3.4.2" # https://github.com/InsertKoinIO/koin/tags
@@ -83,6 +83,7 @@ androidx-dataStore-preferences = { group = "androidx.datastore", name = "datasto
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidxLifecycle" }
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewModel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-metrics = { group = "androidx.metrics", name = "metrics-performance", version.ref = "androidxMetrics" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
@@ -125,6 +126,7 @@ turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
 ktor-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+ktor-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
 ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
 ktor-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref = "ktor" }
 ktor-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }

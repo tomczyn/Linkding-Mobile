@@ -11,26 +11,25 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.tomczyn.linkding.android.ui.common.AppScreen
 import com.tomczyn.linkding.android.ui.common.theme.Dimens
+import com.tomczyn.linkding.features.login.LoginViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun LoginRoute() {
     val viewModel: LoginViewModel = koinViewModel()
     LoginScreen(
-        loginClick = { _, _ -> /*TODO*/ },
+        loginClick = { host, token -> viewModel.login(host, token) },
     )
 }
 

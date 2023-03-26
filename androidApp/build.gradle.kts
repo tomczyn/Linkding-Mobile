@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.viewModel)
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.lifecycle.runtimeCompose)
     implementation(libs.androidx.compose.material3)
@@ -56,6 +57,7 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+    implementation(libs.kmm.viewmodel)
 
     testImplementation(libs.junit5.api)
     testRuntimeOnly(libs.junit5.engine)

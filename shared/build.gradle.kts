@@ -8,7 +8,7 @@ kotlin {
     android {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = "1.8"
             }
         }
     }
@@ -27,7 +27,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(libs.koin.core)
-                api(libs.kmm.viewmodel)
+                implementation(libs.kmm.viewmodel)
                 implementation(libs.bundles.ktor)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.kotlinx.coroutines.core)
@@ -52,6 +52,9 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation(libs.ktor.darwin)
+            }
         }
         val iosX64Test by getting
         val iosArm64Test by getting

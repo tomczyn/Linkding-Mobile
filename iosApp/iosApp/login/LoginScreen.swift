@@ -45,8 +45,8 @@ struct LoginScreen: View {
             }
             .padding()
             // Disable user interaction when loading
-            .allowsHitTesting(!model.state.value.isLoading)
-            if model.state.value.isLoading {
+            .allowsHitTesting(!model.loginState.isLoading)
+            if model.loginState.isLoading {
                 Color.black.opacity(0.5).ignoresSafeArea()
                 ProgressView()
             }
