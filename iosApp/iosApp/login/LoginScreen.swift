@@ -8,12 +8,14 @@
 
 import Foundation
 import SwiftUI
+import KMMViewModelSwiftUI
+import shared
 
 struct LoginScreen: View {
     
     @State private var host: String = ""
     @State private var token: String = ""
-    @ObservedObject var model: LoginModel
+    @StateViewModel private var model = LoginViewModel()
 
     var body: some View {
         ZStack {
@@ -43,8 +45,8 @@ struct LoginScreen: View {
             }
             .padding()
             // Disable user interaction when loading
-            .allowsHitTesting(!model.isLoading)
-            if model.isLoading {
+            .allowsHitTesting(!model.state.value.isLoading)
+            if model.state.value.isLoading {
                 Color.black.opacity(0.5).ignoresSafeArea()
                 ProgressView()
             }

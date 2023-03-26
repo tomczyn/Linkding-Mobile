@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,9 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		545269B529CB64F30018432E /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545269B429CB64F30018432E /* LoginScreen.swift */; };
-		545269B729CB69D70018432E /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545269B629CB69D70018432E /* LoginModel.swift */; };
-		54B3041C29CC6A6E00C908ED /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B3041B29CC6A6E00C908ED /* UserDefaults.swift */; };
+		548A2BB529D03C6500839E2D /* KMMViewModelCore in Frameworks */ = {isa = PBXBuildFile; productRef = 548A2BB429D03C6500839E2D /* KMMViewModelCore */; };
+		548A2BB729D03C6500839E2D /* KMMViewModelSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 548A2BB629D03C6500839E2D /* KMMViewModelSwiftUI */; };
+		548A2BBA29D03C7600839E2D /* KMMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548A2BB929D03C7600839E2D /* KMMViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,8 +35,7 @@
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		545269B229CB64590018432E /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
 		545269B429CB64F30018432E /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
-		545269B629CB69D70018432E /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		54B3041B29CC6A6E00C908ED /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		548A2BB929D03C7600839E2D /* KMMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMMViewModel.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548A2BB529D03C6500839E2D /* KMMViewModelCore in Frameworks */,
+				548A2BB729D03C6500839E2D /* KMMViewModelSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,15 +65,14 @@
 			isa = PBXGroup;
 			children = (
 				545269B429CB64F30018432E /* LoginScreen.swift */,
-				545269B629CB69D70018432E /* LoginModel.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
 		};
-		54B3041A29CC6A5000C908ED /* common */ = {
+		548A2BB829D03C6B00839E2D /* common */ = {
 			isa = PBXGroup;
 			children = (
-				54B3041B29CC6A6E00C908ED /* UserDefaults.swift */,
+				548A2BB929D03C7600839E2D /* KMMViewModel.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -96,7 +97,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				54B3041A29CC6A5000C908ED /* common */,
+				548A2BB829D03C6B00839E2D /* common */,
 				545269B329CB64DA0018432E /* login */,
 				545269B229CB64590018432E /* iosApp.entitlements */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
@@ -132,6 +133,10 @@
 			dependencies = (
 			);
 			name = iosApp;
+			packageProductDependencies = (
+				548A2BB429D03C6500839E2D /* KMMViewModelCore */,
+				548A2BB629D03C6500839E2D /* KMMViewModelSwiftUI */,
+			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +165,9 @@
 				Base,
 			);
 			mainGroup = 7555FF72242A565900829871;
+			packageReferences = (
+				548A2BB329D03C6500839E2D /* XCRemoteSwiftPackageReference "KMM-ViewModel" */,
+			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -206,9 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54B3041C29CC6A6E00C908ED /* UserDefaults.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				545269B729CB69D70018432E /* LoginModel.swift in Sources */,
+				548A2BBA29D03C7600839E2D /* KMMViewModel.swift in Sources */,
 				545269B529CB64F30018432E /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +425,30 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		548A2BB329D03C6500839E2D /* XCRemoteSwiftPackageReference "KMM-ViewModel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rickclephas/KMM-ViewModel.git";
+			requirement = {
+				kind = exactVersion;
+				version = "1.0.0-ALPHA-4";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		548A2BB429D03C6500839E2D /* KMMViewModelCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 548A2BB329D03C6500839E2D /* XCRemoteSwiftPackageReference "KMM-ViewModel" */;
+			productName = KMMViewModelCore;
+		};
+		548A2BB629D03C6500839E2D /* KMMViewModelSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 548A2BB329D03C6500839E2D /* XCRemoteSwiftPackageReference "KMM-ViewModel" */;
+			productName = KMMViewModelSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }

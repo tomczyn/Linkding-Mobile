@@ -51,6 +51,7 @@ koin-android = "3.3.3" # https://github.com/InsertKoinIO/koin/tags
 koin-compose = "3.4.2" # https://github.com/InsertKoinIO/koin/tags
 arrow = "1.1.5" # https://github.com/arrow-kt/arrow/releases
 kermit = "2.0.0-RC3" # https://github.com/touchlab/Kermit/releases
+kmm-viewmodel = "1.0.0-ALPHA-4" # https://github.com/rickclephas/KMM-ViewModel/releases
 
 [libraries]
 accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
@@ -138,6 +139,7 @@ arrow-optics = { group = "io.arrow-kt", name = "arrow-optics", version.ref = "ar
 arrow-meta = { group = "io.arrow-kt", name = "arrow-meta", version.ref = "arrow" }
 arrow-fx = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version.ref = "arrow" }
 kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
+kmm-viewmodel = { group = "com.rickclephas.kmm", name = "kmm-viewmodel-core", version.ref = "kmm-viewmodel" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }

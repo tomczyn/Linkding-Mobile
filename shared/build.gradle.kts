@@ -27,6 +27,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(libs.koin.core)
+                api(libs.kmm.viewmodel)
                 implementation(libs.bundles.ktor)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.kotlinx.coroutines.core)
@@ -39,7 +40,9 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependsOn(commonMain)
+        }
         val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
