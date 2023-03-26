@@ -42,6 +42,9 @@ kotlin {
         }
         val androidMain by getting {
             dependsOn(commonMain)
+            dependencies {
+                implementation(libs.androidx.lifecycle.viewModel)
+            }
         }
         val androidUnitTest by getting
         val iosX64Main by getting
