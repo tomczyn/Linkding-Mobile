@@ -3,6 +3,7 @@ package com.tomczyn.linkding.features.login
 import com.rickclephas.kmm.viewmodel.KMMViewModel
 import com.rickclephas.kmm.viewmodel.MutableStateFlow
 import com.rickclephas.kmm.viewmodel.coroutineScope
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState
 import com.tomczyn.linkding.common.Result
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,6 +18,8 @@ open class LoginViewModel : KMMViewModel(), KoinComponent {
 
     private val _state: MutableStateFlow<LoginState> =
         MutableStateFlow(viewModelScope, LoginState())
+
+    @NativeCoroutinesState
     val state: StateFlow<LoginState> get() = _state
 
     fun login(host: String, token: String) {
@@ -32,5 +35,9 @@ open class LoginViewModel : KMMViewModel(), KoinComponent {
 
     fun resetGoToHome() {
         _state.update { it.copy(goToHome = false) }
+    }
+
+    fun resetError() {
+        _state.update { it.copy(error = false) }
     }
 }

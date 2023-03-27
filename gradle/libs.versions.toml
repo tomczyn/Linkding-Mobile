@@ -36,7 +36,7 @@ kotlin = "1.8.10" # https://github.com/JetBrains/kotlin/releases
 kotlinxCoroutines = "1.6.4" # https://github.com/Kotlin/kotlinx.coroutines/releases
 kotlinxDatetime = "0.4.0" # https://github.com/Kotlin/kotlinx-datetime/releases
 kotlinxSerializationJson = "1.5.0" # https://github.com/Kotlin/kotlinx.serialization/releases
-ksp = "1.8.20-RC-1.0.9" # https://github.com/google/ksp/releases
+ksp = "1.8.10-1.0.9" # https://github.com/google/ksp/releases
 lint = "30.3.1" # https://maven.google.com/web/index.html?q=com.android.tools.lint#com.android.tools.lint:lint-api
 room = "2.5.0" # https://developer.android.com/jetpack/androidx/releases/room
 secrets = "2.0.1" # https://github.com/google/secrets-gradle-plugin/releases
@@ -52,6 +52,7 @@ koin-compose = "3.4.2" # https://github.com/InsertKoinIO/koin/tags
 arrow = "1.1.5" # https://github.com/arrow-kt/arrow/releases
 kermit = "2.0.0-RC3" # https://github.com/touchlab/Kermit/releases
 kmm-viewmodel = "1.0.0-ALPHA-4" # https://github.com/rickclephas/KMM-ViewModel/releases
+nativeCoroutines = "1.0.0-ALPHA-5" # https://github.com/rickclephas/KMP-NativeCoroutines/releases
 
 [libraries]
 accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
@@ -161,3 +162,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5-plugin"}
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+nativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "nativeCoroutines" }

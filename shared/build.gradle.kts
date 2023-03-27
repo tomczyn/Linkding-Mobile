@@ -1,7 +1,9 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.nativeCoroutines)
 }
 
 kotlin {
@@ -24,6 +26,9 @@ kotlin {
     }
 
     sourceSets {
+        all {
+            languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
+        }
         val commonMain by getting {
             dependencies {
                 api(libs.koin.core)

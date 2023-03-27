@@ -18,38 +18,51 @@ struct LoginScreen: View {
     @StateViewModel private var model = LoginViewModel()
 
     var body: some View {
-        ZStack {
+        NavigationView {
             ZStack {
-                VStack {
-                    Text("Login")
-                        .font(.largeTitle)
-                        .frame(maxWidth: .infinity)
-                    Spacer()
-                    TextField("Host", text: $host)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                    Spacer().frame(height: 30)
-                    SecureField("Token", text: $token)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Spacer()
-                    Button(action: { model.login(host:host, token:token) }) {
+                ZStack {
+                    VStack {
                         Text("Login")
-                            .foregroundColor(.white)
-                            .frame(width: 200.0)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(8.0)
+                            .font(.largeTitle)
+                            .frame(maxWidth: .infinity)
+                        Spacer()
+                        TextField("Host", text: $host)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                        Spacer().frame(height: 30)
+                        SecureField("Token", text: $token)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        Spacer()
+                        Button(action: { model.login(host:host, token:token) }) {
+                            Text("Login")
+                                .foregroundColor(.white)
+                                .frame(width: 200.0)
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(8.0)
+                        }
                     }
                 }
+                .padding()
+                // Disable user interaction when loading
+                .allowsHitTesting(!model.state.isLoading)
+                if model.state.isLoading {
+                    Color.black.opacity(0.5).ignoresSafeArea()
+                    ProgressView()
+                }
             }
-            .padding()
-            // Disable user interaction when loading
-            .allowsHitTesting(!model.loginState.isLoading)
-            if model.loginState.isLoading {
-                Color.black.opacity(0.5).ignoresSafeArea()
-                ProgressView()
-            }
+        }
+        .alert(isPresented: Binding(get: {
+            model.state.error
+        }, set: { _, _ in
+            model.resetError()
+        })) {
+            Alert(
+                title: Text("Error"),
+                message: Text("Login failed. Please check your host and token."),
+                dismissButton: .default(Text("OK"))
+            )
         }
     }
 }
