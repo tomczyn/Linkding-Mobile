@@ -18,8 +18,8 @@
 		548A2BC029D08EA100839E2D /* KMPNativeCoroutinesAsync in Frameworks */ = {isa = PBXBuildFile; productRef = 548A2BBF29D08EA100839E2D /* KMPNativeCoroutinesAsync */; };
 		548A2BC229D08EA100839E2D /* KMPNativeCoroutinesCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 548A2BC129D08EA100839E2D /* KMPNativeCoroutinesCombine */; };
 		548A2BC429D08EA100839E2D /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 548A2BC329D08EA100839E2D /* KMPNativeCoroutinesCore */; };
-		54E845C729D770B900C43F29 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E845C629D770B900C43F29 /* LoginModel.swift */; };
 		54E845C929D9832B00C43F29 /* PublisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E845C829D9832B00C43F29 /* PublisherExtension.swift */; };
+		54E845CC29D9886300C43F29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E845CB29D9886300C43F29 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,8 +43,8 @@
 		545269B429CB64F30018432E /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		548A2BB929D03C7600839E2D /* KMMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMMViewModel.swift; sourceTree = "<group>"; };
 		548A2BBC29D08B2C00839E2D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		54E845C629D770B900C43F29 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		54E845C829D9832B00C43F29 /* PublisherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtension.swift; sourceTree = "<group>"; };
+		54E845CB29D9886300C43F29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				545269B429CB64F30018432E /* LoginScreen.swift */,
-				54E845C629D770B900C43F29 /* LoginModel.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -97,6 +96,16 @@
 				548A2BBC29D08B2C00839E2D /* HomeScreen.swift */,
 			);
 			path = home;
+			sourceTree = "<group>";
+		};
+		54E845CA29D9882B00C43F29 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				548A2BBB29D08B2200839E2D /* home */,
+				545269B329CB64DA0018432E /* login */,
+				54E845CB29D9886300C43F29 /* ContentView.swift */,
+			);
+			path = ui;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -119,9 +128,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				548A2BBB29D08B2200839E2D /* home */,
 				548A2BB829D03C6B00839E2D /* common */,
-				545269B329CB64DA0018432E /* login */,
+				54E845CA29D9882B00C43F29 /* ui */,
 				545269B229CB64590018432E /* iosApp.entitlements */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -241,9 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54E845C729D770B900C43F29 /* LoginModel.swift in Sources */,
 				548A2BBD29D08B2C00839E2D /* HomeScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				54E845CC29D9886300C43F29 /* ContentView.swift in Sources */,
 				548A2BBA29D03C7600839E2D /* KMMViewModel.swift in Sources */,
 				54E845C929D9832B00C43F29 /* PublisherExtension.swift in Sources */,
 				545269B529CB64F30018432E /* LoginScreen.swift in Sources */,
