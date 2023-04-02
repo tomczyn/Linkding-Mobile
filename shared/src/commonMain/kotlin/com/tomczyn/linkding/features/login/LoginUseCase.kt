@@ -12,7 +12,7 @@ import io.ktor.http.*
 import io.ktor.utils.io.*
 
 class LoginUseCase(
-    private val settings: Settings,
+    private val settings: Settings
 ) : suspend (String, String) -> Result {
 
     override suspend fun invoke(host: String, token: String): Result {

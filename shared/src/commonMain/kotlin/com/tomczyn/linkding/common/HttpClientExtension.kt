@@ -17,8 +17,6 @@ import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.*
 import kotlinx.coroutines.CancellationException
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 internal suspend inline fun <reified RES : Any, reified ERR : Any, reified REQ : Any> HttpClient.put(
     url: String,
@@ -84,8 +82,9 @@ internal suspend inline fun <reified RES : Any, reified ERR : Any> request(
                         RequestError.Api(response.status.value, it)
                     },
                     onFailure = {
-                        if (it is CancellationException) throw it
-                        else {
+                        if (it is CancellationException) {
+                            throw it
+                        } else {
                             Logger.e(it.message.orEmpty())
                             RequestError.Exception(it)
                         }
@@ -94,8 +93,9 @@ internal suspend inline fun <reified RES : Any, reified ERR : Any> request(
         }
     },
     onFailure = {
-        if (it is CancellationException) throw it
-        else {
+        if (it is CancellationException) {
+            throw it
+        } else {
             Logger.e(it.message.orEmpty())
             RequestError.Exception(it).left()
         }

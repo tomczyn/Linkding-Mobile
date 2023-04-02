@@ -4,15 +4,24 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
+import com.tomczyn.linkding.Settings
 import com.tomczyn.linkding.android.ui.common.LinkdingNavHost
 import com.tomczyn.linkding.android.ui.common.theme.LinkdingTheme
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-@AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), KoinComponent {
+
+    private val settings: Settings by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        setContent { LinkdingTheme { LinkdingNavHost() } }
+        setContent {
+            LinkdingTheme {
+                LinkdingNavHost(
+                    settings = settings
+                )
+            }
+        }
     }
 }

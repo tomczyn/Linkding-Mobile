@@ -12,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -20,25 +21,45 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tomczyn.linkding.android.ui.common.AppScreen
 import com.tomczyn.linkding.android.ui.common.theme.Dimens
+import com.tomczyn.linkding.features.login.LoginState
 import com.tomczyn.linkding.features.login.LoginViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun LoginRoute() {
+fun LoginRoute(
+    goToHome: () -> Unit = {}
+) {
     val viewModel: LoginViewModel = koinViewModel()
+    val state by viewModel.state.collectAsStateWithLifecycle()
+    LoginNavigation(state, viewModel, goToHome)
     LoginScreen(
-        loginClick = { host, token -> viewModel.login(host, token) },
+        loginClick = { host, token -> viewModel.login(host, token) }
     )
 }
 
 @Composable
+private fun LoginNavigation(
+    state: LoginState,
+    viewModel: LoginViewModel,
+    goToHome: () -> Unit
+) {
+    LaunchedEffect(state.goToHome) {
+        if (state.goToHome) {
+            viewModel.resetGoToHome()
+            goToHome()
+        }
+    }
+}
+
+@Composable
 fun LoginScreen(
-    loginClick: (String, String) -> Unit = { _, _ -> },
+    loginClick: (String, String) -> Unit = { _, _ -> }
 ) {
     AppScreen(
-        verticalArrangement = Arrangement.SpaceAround,
+        verticalArrangement = Arrangement.SpaceAround
     ) {
         var host by rememberSaveable { mutableStateOf("") }
         var username by rememberSaveable { mutableStateOf("") }
@@ -94,13 +115,13 @@ private fun TokenField(
 
 @Composable
 private fun LoginButton(
-    loginClick: () -> Unit,
+    loginClick: () -> Unit
 ) {
     Button(
         modifier = Modifier
             .height(Dimens.buttonHeight)
             .fillMaxWidth(0.6f),
-        onClick = loginClick,
+        onClick = loginClick
     ) {
         Text("LOGIN")
     }

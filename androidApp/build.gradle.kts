@@ -52,7 +52,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3.windowSizeClass)
     debugImplementation(libs.androidx.compose.ui.testManifest)
-    implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.timber)
     implementation(libs.koin.android)
@@ -82,8 +81,8 @@ val checkReleaseVersion by tasks.registering {
         if (versionName?.matches("\\d+(\\.\\d+)+".toRegex()) == false) {
             throw GradleException(
                 "Version name for release builds can only be numeric (like 1.0.0), but was $versionName\n" +
-                        "Please use git tag to set version name on the current commit and try again\n" +
-                        "For example: git tag -a 1.0.0 -m 'tag message'"
+                    "Please use git tag to set version name on the current commit and try again\n" +
+                    "For example: git tag -a 1.0.0 -m 'tag message'"
             )
         }
     }
@@ -96,4 +95,3 @@ tasks.whenTaskAdded {
         dependsOn(checkReleaseVersion)
     }
 }
-

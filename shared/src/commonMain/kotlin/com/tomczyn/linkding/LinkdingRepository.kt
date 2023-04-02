@@ -19,8 +19,11 @@ class LinkdingRepository(
 
     private val baseUrl: String
         get() = settings.getString("host")!!.run {
-            if (last().toString() == "/") removeSuffix("/")
-            else this
+            if (last().toString() == "/") {
+                removeSuffix("/")
+            } else {
+                this
+            }
         }
 
     suspend fun getBookmarks(

@@ -11,7 +11,10 @@ import SwiftUI
 
 struct HomeScreen: View {
     
+    var onLogout: () -> Void
     @State private var isLoading: Bool = true
+    
+    struct Destination : Hashable {}
     
     var body: some View {
         NavigationView {

@@ -13,6 +13,9 @@ fun Settings.setString(key: LinkdingSettings, value: String) {
     setString(key.toString(), value)
 }
 
+val Settings.isUserLoggedIn: Boolean
+    get() = getString(LinkdingSettings.TOKEN)?.isNotEmpty() ?: false
+
 enum class LinkdingSettings {
     HOST, TOKEN
 }
