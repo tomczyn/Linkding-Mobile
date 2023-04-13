@@ -8,6 +8,6 @@ const val homeRoute: String = "home_route"
 
 fun NavGraphBuilder.homeGraph() {
     composable(route = homeRoute) {
-        LoginRoute()
+        HomeRoute()
     }
 }

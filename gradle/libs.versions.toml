@@ -51,8 +51,8 @@ koin-android = "3.3.3" # https://github.com/InsertKoinIO/koin/tags
 koin-compose = "3.4.2" # https://github.com/InsertKoinIO/koin/tags
 arrow = "1.1.5" # https://github.com/arrow-kt/arrow/releases
 kermit = "2.0.0-RC3" # https://github.com/touchlab/Kermit/releases
-kmm-viewmodel = "1.0.0-ALPHA-4" # https://github.com/rickclephas/KMM-ViewModel/releases
-nativeCoroutines = "1.0.0-ALPHA-5" # https://github.com/rickclephas/KMP-NativeCoroutines/releases
+kmm-viewmodel = "1.0.0-ALPHA-5" # https://github.com/rickclephas/KMM-ViewModel/releases
+nativeCoroutines = "1.0.0-ALPHA-6" # https://github.com/rickclephas/KMP-NativeCoroutines/releases
 
 [libraries]
 accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
