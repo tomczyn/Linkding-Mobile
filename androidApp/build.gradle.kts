@@ -18,9 +18,11 @@ android {
     }
 
     buildTypes {
+        @Suppress("UNUSED_VARIABLE")
         val debug by getting {
             applicationIdSuffix = LinkdingBuildType.DEBUG.applicationIdSuffix
         }
+        @Suppress("UNUSED_VARIABLE")
         val release by getting {
             isMinifyEnabled = true
             applicationIdSuffix = LinkdingBuildType.RELEASE.applicationIdSuffix
@@ -30,6 +32,11 @@ android {
             )
             signingConfig = signingConfigs.getByName("debug")
         }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     packagingOptions {

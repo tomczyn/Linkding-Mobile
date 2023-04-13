@@ -13,7 +13,6 @@ import shared
 struct ContentView: View {
     
     @State private var isUserLoggedIn: Bool
-    @State private var path = NavigationPath()
     
     init() {
         let settings = KoinHelper().settings
@@ -22,13 +21,9 @@ struct ContentView: View {
     
     var body: some View {
         if isUserLoggedIn {
-            NavigationStack(path: $path) {
-                HomeScreen(onLogout: {
-                    isUserLoggedIn = false
-                })
-//                .navigationDestination(for: MyScreen.Destination.self) { destination in
-//                }
-            }
+            HomeScreen(onLogout: {
+                isUserLoggedIn = false
+            })
         } else {
             LoginScreen(onLogin: {
                 isUserLoggedIn = true

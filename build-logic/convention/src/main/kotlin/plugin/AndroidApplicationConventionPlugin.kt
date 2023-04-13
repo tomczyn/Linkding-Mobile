@@ -1,10 +1,10 @@
 package plugin
 
-import configureFlavors
 import buildlogic.configureKotlinAndroid
 import buildlogic.configurePrintApksTask
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
+import configureFlavors
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

@@ -1,12 +1,14 @@
 [versions]
-accompanist = "0.28.0" # https://github.com/google/accompanist/releases
-androidDesugarJdkLibs = "2.0.2" # https://maven.google.com/web/index.html?q=desugar_jdk_libs#com.android.tools:desugar_jdk_libs
 androidGradlePlugin = "7.4.2" # https://maven.google.com/web/index.html?q=com.android.tools.build#com.android.tools.build:gradle
+kotlin = "1.8.20" # https://github.com/JetBrains/kotlin/releases
+androidxComposeCompiler = "1.4.5" # https://developer.android.com/jetpack/androidx/releases/compose
+androidxComposeBom = "2023.04.00" # https://maven.google.com/web/index.html?q=compose-bom#androidx.compose:compose-bom
+ksp = "1.8.20-1.0.10" # https://github.com/google/ksp/releases
+accompanist = "0.28.0" # https://github.com/google/accompanist/releases
+androidDesugarJdkLibs = "2.0.3" # https://maven.google.com/web/index.html?q=desugar_jdk_libs#com.android.tools:desugar_jdk_libs
 androidxActivity = "1.6.1" # https://developer.android.com/jetpack/androidx/releases/activity
 androidxAppCompat = "1.6.1" # https://developer.android.com/jetpack/androidx/releases/appcompat
 androidxBrowser = "1.5.0" # https://developer.android.com/jetpack/androidx/releases/browser
-androidxComposeBom = "2023.01.00" # https://maven.google.com/web/index.html?q=compose-bom#androidx.compose:compose-bom
-androidxComposeCompiler = "1.4.3" # https://developer.android.com/jetpack/androidx/releases/compose
 androidxComposeRuntimeTracing = "1.0.0-alpha03" # https://developer.android.com/jetpack/androidx/releases/compose-runtime
 androidxCore = "1.9.0" # https://developer.android.com/jetpack/androidx/releases/core
 androidxCoreSplashscreen = "1.0.0" # https://developer.android.com/jetpack/androidx/releases/core
@@ -32,11 +34,9 @@ androidxHiltNavigationCompose = "1.0.0" # https://developer.android.com/jetpack/
 hiltExt = "1.0.0" # https://developer.android.com/jetpack/androidx/releases/hilt
 jacoco = "0.8.8" # https://github.com/jacoco/jacoco/releases
 junit4 = "4.13.2"
-kotlin = "1.8.10" # https://github.com/JetBrains/kotlin/releases
 kotlinxCoroutines = "1.6.4" # https://github.com/Kotlin/kotlinx.coroutines/releases
 kotlinxDatetime = "0.4.0" # https://github.com/Kotlin/kotlinx-datetime/releases
 kotlinxSerializationJson = "1.5.0" # https://github.com/Kotlin/kotlinx.serialization/releases
-ksp = "1.8.10-1.0.9" # https://github.com/google/ksp/releases
 lint = "30.3.1" # https://maven.google.com/web/index.html?q=com.android.tools.lint#com.android.tools.lint:lint-api
 room = "2.5.0" # https://developer.android.com/jetpack/androidx/releases/room
 secrets = "2.0.1" # https://github.com/google/secrets-gradle-plugin/releases

@@ -9,22 +9,37 @@
 import Foundation
 import SwiftUI
 
+enum HomeDestinations : Hashable {
+    case allItems
+    case unread
+}
+
 struct HomeScreen: View {
     
     var onLogout: () -> Void
     @State private var isLoading: Bool = true
-    
-    struct Destination : Hashable {}
+    @State private var path: [HomeDestinations] = []
     
     var body: some View {
-        NavigationView {
-            Group {
-                if isLoading {
-                    ProgressView()
-                } else {
-                    
+        NavigationStack(path: $path) {
+            List {
+//                NavigationLink("All items", value: .allItems)
+////                NavigationLink("Unread", value: .unread)
+            }
+            .navigationDestination(for: HomeDestinations.self) { destination in
+                switch destination {
+                    case .allItems:
+                        EmptyView()
+                    case .unread:
+                        EmptyView()
                 }
             }
         }
+    }
+}
+
+struct Previews_HomeScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
