@@ -17,8 +17,8 @@ class LinkdingApp : Application() {
             androidLogger()
             modules(appModule() + androidModule)
         }
-//        if (BuildConfig.DEBUG) {
-//            Timber.plant(Timber.DebugTree())
-//        }
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 }

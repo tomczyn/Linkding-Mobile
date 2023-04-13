@@ -18,6 +18,7 @@
 		548A2BC029D08EA100839E2D /* KMPNativeCoroutinesAsync in Frameworks */ = {isa = PBXBuildFile; productRef = 548A2BBF29D08EA100839E2D /* KMPNativeCoroutinesAsync */; };
 		548A2BC229D08EA100839E2D /* KMPNativeCoroutinesCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 548A2BC129D08EA100839E2D /* KMPNativeCoroutinesCombine */; };
 		548A2BC429D08EA100839E2D /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 548A2BC329D08EA100839E2D /* KMPNativeCoroutinesCore */; };
+		54DD7F6829E807160008AB54 /* CollapsibleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DD7F6729E807160008AB54 /* CollapsibleSection.swift */; };
 		54E845C929D9832B00C43F29 /* PublisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E845C829D9832B00C43F29 /* PublisherExtension.swift */; };
 		54E845CC29D9886300C43F29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E845CB29D9886300C43F29 /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		545269B429CB64F30018432E /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		548A2BB929D03C7600839E2D /* KMMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMMViewModel.swift; sourceTree = "<group>"; };
 		548A2BBC29D08B2C00839E2D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		54DD7F6729E807160008AB54 /* CollapsibleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleSection.swift; sourceTree = "<group>"; };
 		54E845C829D9832B00C43F29 /* PublisherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtension.swift; sourceTree = "<group>"; };
 		54E845CB29D9886300C43F29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,9 +100,18 @@
 			path = home;
 			sourceTree = "<group>";
 		};
+		54DD7F6629E806EE0008AB54 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				54DD7F6729E807160008AB54 /* CollapsibleSection.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		54E845CA29D9882B00C43F29 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				54DD7F6629E806EE0008AB54 /* common */,
 				548A2BBB29D08B2200839E2D /* home */,
 				545269B329CB64DA0018432E /* login */,
 				54E845CB29D9886300C43F29 /* ContentView.swift */,
@@ -250,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				548A2BBD29D08B2C00839E2D /* HomeScreen.swift in Sources */,
+				54DD7F6829E807160008AB54 /* CollapsibleSection.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				54E845CC29D9886300C43F29 /* ContentView.swift in Sources */,
 				548A2BBA29D03C7600839E2D /* KMMViewModel.swift in Sources */,
