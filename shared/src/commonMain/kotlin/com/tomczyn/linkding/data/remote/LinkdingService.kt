@@ -69,9 +69,7 @@ class LinkdingService(
         return httpClient.delete(url)
     }
 
-    suspend fun getTags(): Response<ApiError, TagsResponse> {
-        val url = "$baseUrl/api/tags/"
-        Logger.d { "Fetching with $url" }
-        return httpClient.get(url)
+    suspend fun getTags(url: String? = null): Response<ApiError, TagsResponse> {
+        return httpClient.get(url ?: "$baseUrl/api/tags/")
     }
 }

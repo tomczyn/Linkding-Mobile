@@ -9,6 +9,7 @@ import com.tomczyn.linkding.data.local.LinkdingDao
 import com.tomczyn.linkding.data.local.createDatabase
 import com.tomczyn.linkding.data.remote.LinkdingService
 import com.tomczyn.linkding.database.LinkdingDatabase
+import com.tomczyn.linkding.features.home.usecase.GetHomeScreenTagsUseCase
 import com.tomczyn.linkding.features.login.LoginUseCase
 import io.ktor.client.*
 import org.koin.dsl.module
@@ -20,4 +21,5 @@ fun appModule() = module {
     single<LinkdingDatabase> { createDatabase(get<DriverFactory>()) }
     single { LinkdingDao(get<LinkdingDatabase>()) }
     single { LinkdingRepository(get<LinkdingDao>(), get<LinkdingService>()) }
+    factory { GetHomeScreenTagsUseCase(get<LinkdingRepository>()) }
 }

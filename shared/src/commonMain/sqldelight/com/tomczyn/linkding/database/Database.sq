@@ -8,75 +8,34 @@ CREATE TABLE BookmarkEntity (
     isArchived INTEGER NOT NULL,
     unread INTEGER NOT NULL,
     shared INTEGER NOT NULL,
+    tagNames TEXT NOT NULL,
     dateAdded TEXT NOT NULL,
     dateModified TEXT NOT NULL
 );
 
 CREATE TABLE TagEntity (
-    id INTEGER PRIMARY KEY NOT NULL,
-    name TEXT NOT NULL,
+    name TEXT PRIMARY KEY NOT NULL,
     dateAdded TEXT NOT NULL
 );
 
-CREATE TABLE BookmarkTagEntity (
-    bookmarkId INTEGER NOT NULL,
-    tagId INTEGER NOT NULL,
-    FOREIGN KEY (bookmarkId) REFERENCES BookmarkEntity(id),
-    FOREIGN KEY (tagId) REFERENCES TagEntity(id)
-);
+selectAllBookmarks:
+SELECT *
+FROM BookmarkEntity;
 
-bookmarkWithTags:
-SELECT
-    bookmarks.id,
-    bookmarks.url,
-    bookmarks.title,
-    bookmarks.description,
-    bookmarks.websiteTitle,
-    bookmarks.websiteDescription,
-    bookmarks.isArchived,
-    bookmarks.unread,
-    bookmarks.shared,
-    bookmarks.dateAdded,
-    bookmarks.dateModified,
-    GROUP_CONCAT(tags.name) AS tagList
-FROM
-    BookmarkEntity AS bookmarks
-LEFT JOIN
-    BookmarkTagEntity AS bookmark_tags ON bookmarks.id = bookmark_tags.bookmarkId
-LEFT JOIN
-    TagEntity AS tags ON bookmark_tags.tagId = tags.id
-GROUP BY
-    bookmarks.id,
-    bookmarks.url,
-    bookmarks.title,
-    bookmarks.description,
-    bookmarks.websiteTitle,
-    bookmarks.websiteDescription,
-    bookmarks.isArchived,
-    bookmarks.unread,
-    bookmarks.shared,
-    bookmarks.dateAdded,
-    bookmarks.dateModified;
+insertBookmark:
+INSERT INTO BookmarkEntity
+VALUES ?;
 
-allTags:
+removeAllBookmarks:
+DELETE FROM BookmarkEntity;
+
+selectAllTags:
 SELECT *
 FROM TagEntity;
 
-bookmarksForTags:
-SELECT
-    BookmarkEntity.id, BookmarkEntity.url, BookmarkEntity.title, BookmarkEntity.description, BookmarkEntity.websiteTitle,
-    BookmarkEntity.websiteDescription, BookmarkEntity.isArchived, BookmarkEntity.unread, BookmarkEntity.shared,
-    BookmarkEntity.dateAdded, BookmarkEntity.dateModified
-FROM
-    BookmarkEntity
-JOIN
-    BookmarkTagEntity ON BookmarkEntity.id = BookmarkTagEntity.bookmarkId
-JOIN
-    TagEntity ON BookmarkTagEntity.tagId = TagEntity.id
-WHERE
-    TagEntity.name IN ?
-GROUP BY
-    BookmarkEntity.id
-ORDER BY
-    BookmarkEntity.dateAdded DESC;
+insertTag:
+INSERT INTO TagEntity
+VALUES ?;
 
+removeAllTags:
+DELETE FROM TagEntity;

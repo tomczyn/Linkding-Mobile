@@ -1,35 +1,62 @@
 package com.tomczyn.linkding.data
 
-import co.touchlab.kermit.Logger
 import com.tomczyn.linkding.data.local.LinkdingDao
+import com.tomczyn.linkding.data.remote.BookmarkRemote
 import com.tomczyn.linkding.data.remote.LinkdingService
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import com.tomczyn.linkding.data.remote.TagRemote
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 class LinkdingRepository(
     private val dao: LinkdingDao,
     private val service: LinkdingService,
 ) {
 
-    fun getBookmarks(): Flow<List<Bookmark>> = flow {
-        emit(dao.getBookmarks().map { it.toBookmark() })
+    private val _bookmarks: MutableStateFlow<List<Bookmark>> = MutableStateFlow(emptyList())
+    val bookmarks: StateFlow<List<Bookmark>> get() = _bookmarks
+
+    private val _tags: MutableStateFlow<List<Tag>> = MutableStateFlow(emptyList())
+    val tags: StateFlow<List<Tag>> get() = _tags
+
+    suspend fun refreshBookmarks() {
+        _bookmarks.emit(dao.getBookmarks().map { it.toBookmark() })
+        var nextUrl: String? = null
+        var error = false
+        val bookmarks = mutableListOf<Bookmark>()
+        do {
+            service.getBookmarks()
+                .onRight { response ->
+                    bookmarks.addAll(response.results.map(BookmarkRemote::toBookmark))
+                    nextUrl = response.next
+                }
+                .onLeft {
+                    nextUrl = null
+                    error = true
+                }
+        } while (nextUrl != null)
+        _bookmarks.emit(bookmarks)
+        if (!error) dao.removeAllBookmarks()
+        dao.saveBookmark(*bookmarks.map(Bookmark::toBookmarkEntity).toTypedArray())
     }
 
-    fun getTags(): Flow<List<Tag>> = flow {
-        val fromLocal = dao.getTags().map { it.toTag() }
-        emit(fromLocal)
-        Logger.d { "getTags: Displaying tags from local: ${fromLocal.joinToString(", ") { it.name }}" }
-        service.getTags().onRight { response ->
-            Logger.d { "getTags: Fetched remote tags, size: ${response.results.size}, next: ${response.next}" }
-            val tags = response.results.map { it.toTag() }
-            emit(tags)
-            dao.saveTags(*tags.map { it.toTagEntity() }.toTypedArray())
-        }.onLeft {
-            Logger.e { "getTags: Error while loading tags from remote $it" }
-        }
-    }
-
-    suspend fun getBookmarksForTag(vararg names: String): List<Bookmark> {
-        TODO()
+    suspend fun refreshTags() {
+        _tags.emit(dao.getTags().map { it.toTag() })
+        var nextUrl: String? = null
+        var error = false
+        val tags = mutableListOf<Tag>()
+        do {
+            service.getTags(nextUrl)
+                .onRight { response ->
+                    tags.addAll(response.results.map(TagRemote::toTag))
+                    nextUrl = response.next
+                }
+                .onLeft {
+                    nextUrl = null
+                    error = true
+                }
+        } while (nextUrl != null)
+        _tags.emit(tags)
+        if (!error) dao.removeAllTags()
+        dao.saveTags(*tags.map(Tag::toTagEntity).toTypedArray())
     }
 }

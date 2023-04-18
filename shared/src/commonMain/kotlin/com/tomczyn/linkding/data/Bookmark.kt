@@ -2,7 +2,6 @@ package com.tomczyn.linkding.data
 
 import com.tomczyn.linkding.data.remote.BookmarkRemote
 import com.tomczyn.linkding.database.BookmarkEntity
-import com.tomczyn.linkding.database.BookmarkWithTags
 
 data class Bookmark(
     val id: Long,
@@ -37,7 +36,7 @@ fun BookmarkRemote.toBookmark(): Bookmark {
     )
 }
 
-fun BookmarkWithTags.toBookmark(): Bookmark {
+fun BookmarkEntity.toBookmark(): Bookmark {
     return Bookmark(
         id = id,
         url = url,
@@ -48,7 +47,24 @@ fun BookmarkWithTags.toBookmark(): Bookmark {
         isArchived = isArchived == 1L,
         unread = unread == 1L,
         shared = shared == 1L,
-        tagNames = tagList?.split(",") ?: emptyList(),
+        tagNames = tagNames.split(" "),
+        dateAdded = dateAdded,
+        dateModified = dateModified,
+    )
+}
+
+fun Bookmark.toBookmarkEntity(): BookmarkEntity {
+    return BookmarkEntity(
+        id = id,
+        url = url,
+        title = title,
+        description = description,
+        websiteTitle = websiteTitle,
+        websiteDescription = websiteDescription,
+        isArchived = if (isArchived) 1L else 0L,
+        unread = if (unread) 1L else 0L,
+        shared = if (shared) 1L else 0L,
+        tagNames = tagNames.joinToString(" "),
         dateAdded = dateAdded,
         dateModified = dateModified,
     )

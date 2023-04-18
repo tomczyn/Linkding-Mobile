@@ -36,7 +36,7 @@ struct HomeScreen: View {
                 NavigationLink("home_unread", value: HomeDestinations.unread)
                 NavigationLink("home_untagged", value: HomeDestinations.untagged)
                 CollapsibleSection(title: "home_tags") {
-                    ForEach(model.state.tags, id: \.id) { tag in
+                    ForEach(model.state.tags, id: \.name) { tag in
                         NavigationLink(tag.name, value: HomeDestinations.tag(tag.name))
                     }
                 }
@@ -57,7 +57,9 @@ struct HomeScreen: View {
                 }
             }
         }
-        .searchable(text: $search)
+        .searchable(text: $search) {
+            EmptyView()
+        }
     }
 }
 

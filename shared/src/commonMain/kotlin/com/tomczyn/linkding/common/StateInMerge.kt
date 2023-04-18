@@ -1,4 +1,4 @@
-package com.tomczyn.linkding.android.common
+package com.tomczyn.linkding.common
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
