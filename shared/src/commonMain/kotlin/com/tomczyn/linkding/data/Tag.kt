@@ -1,16 +1,34 @@
 package com.tomczyn.linkding.data
 
-import kotlinx.serialization.Serializable
+import com.tomczyn.linkding.data.remote.TagRemote
+import com.tomczyn.linkding.database.TagEntity
 
-@Serializable
-data class TagsResponse(
-    val count: Int,
-    val next: String?,
-    val previous: String?,
-    val results: List<Tag>
-)
-
-@Serializable
 data class Tag(
-    val name: String
+    val id: Long,
+    val name: String,
+    val dateAdded: String,
 )
+
+fun TagRemote.toTag(): Tag {
+    return Tag(
+        id = id,
+        name = name,
+        dateAdded = dateAdded
+    )
+}
+
+fun TagEntity.toTag(): Tag {
+    return Tag(
+        id = id,
+        name = name,
+        dateAdded = dateAdded
+    )
+}
+
+fun Tag.toTagEntity(): TagEntity {
+    return TagEntity(
+        id = id,
+        name = name,
+        dateAdded = dateAdded
+    )
+}

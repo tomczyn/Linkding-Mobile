@@ -1,0 +1,13 @@
+"home_all_items" = "All items";
+"home_unread" = "Unread";
+"home_untagged" = "Untagged";
+"home_tags" = "Tags";
+"home_trash" = "Archived";
+
+"login_title" = "Login";
+"login_token" = "Token";
+"login_host" = "Host";
+"login_error_title" = "Error";
+"login_error_desc" = "Login failed. Please check your host and token.";
+
+"ok" = "OK";

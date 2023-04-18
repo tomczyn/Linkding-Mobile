@@ -1,4 +1,4 @@
-package com.tomczyn.linkding.data
+package com.tomczyn.linkding.data.remote
 
 import kotlinx.serialization.Serializable
 

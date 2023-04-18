@@ -50,9 +50,6 @@ fun LinkdingHttpClient(
     defaultRequest {
         contentType(ContentType.Application.Json)
         header(HttpHeaders.Authorization, "Token ${settings.getString(LinkdingSettings.TOKEN)}")
-        url {
-            host = settings.getString(LinkdingSettings.HOST) ?: ""
-        }
     }
     install(HttpTimeout) { requestTimeoutMillis = 3000 }
 }

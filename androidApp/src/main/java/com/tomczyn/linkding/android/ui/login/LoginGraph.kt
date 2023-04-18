@@ -5,8 +5,10 @@ import androidx.navigation.compose.composable
 
 const val loginRoute: String = "login_route"
 
-fun NavGraphBuilder.loginGraph() {
+fun NavGraphBuilder.loginGraph(
+    goToHome: () -> Unit
+) {
     composable(route = loginRoute) {
-        LoginRoute()
+        LoginRoute(goToHome = goToHome)
     }
 }

@@ -24,20 +24,20 @@ struct LoginScreen: View {
         ZStack {
             ZStack {
                 VStack {
-                    Text("Login")
+                    Text("login_title")
                         .font(.largeTitle)
                         .frame(maxWidth: .infinity)
                     Spacer()
-                    TextField("Host", text: $host)
+                    TextField("login_host", text: $host)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     Spacer().frame(height: 30)
-                    SecureField("Token", text: $token)
+                    SecureField("login_token", text: $token)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Spacer()
                     Button(action: { model.login(host:host, token:token) }) {
-                        Text("Login")
+                        Text("login_title")
                             .foregroundColor(.white)
                             .frame(width: 200.0)
                             .padding()
@@ -66,9 +66,9 @@ struct LoginScreen: View {
             model.resetError()
         })) {
             Alert(
-                title: Text("Error"),
-                message: Text("Login failed. Please check your host and token."),
-                dismissButton: .default(Text("OK"))
+                title: Text("login_error"),
+                message: Text("login_error_desc"),
+                dismissButton: .default(Text("ok"))
             )
         }
     }

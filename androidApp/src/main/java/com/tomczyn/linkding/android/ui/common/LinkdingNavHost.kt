@@ -24,7 +24,11 @@ fun LinkdingNavHost(
         navController = navController,
         startDestination = startDestination
     ) {
-        loginGraph()
+        loginGraph(goToHome = {
+            navController.navigate(homeRoute) {
+                popUpTo(loginRoute) { inclusive = true }
+            }
+        })
         homeGraph()
     }
 }

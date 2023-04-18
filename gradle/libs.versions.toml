@@ -53,6 +53,7 @@ arrow = "1.1.5" # https://github.com/arrow-kt/arrow/releases
 kermit = "2.0.0-RC3" # https://github.com/touchlab/Kermit/releases
 kmm-viewmodel = "1.0.0-ALPHA-5" # https://github.com/rickclephas/KMM-ViewModel/releases
 nativeCoroutines = "1.0.0-ALPHA-6" # https://github.com/rickclephas/KMP-NativeCoroutines/releases
+sqldelight = "2.0.0-alpha05" # https://github.com/cashapp/sqldelight/releases
 
 [libraries]
 accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
@@ -143,6 +144,10 @@ arrow-meta = { group = "io.arrow-kt", name = "arrow-meta", version.ref = "arrow"
 arrow-fx = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version.ref = "arrow" }
 kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
 kmm-viewmodel = { group = "com.rickclephas.kmm", name = "kmm-viewmodel-core", version.ref = "kmm-viewmodel" }
+sqldelight-android = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
+sqldelight-native = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
+sqldelight-sqlite = { group = "app.cash.sqldelight", name = "sqlite-driver", version.ref = "sqldelight" }
+sqldelight-coroutines = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -163,3 +168,4 @@ secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugi
 junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5-plugin"}
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 nativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "nativeCoroutines" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight"}

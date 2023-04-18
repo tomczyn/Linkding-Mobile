@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.nativeCoroutines)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -40,6 +41,7 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.arrow.core)
                 implementation(libs.kermit)
+                implementation(libs.sqldelight.coroutines)
             }
         }
         val commonTest by getting {
@@ -51,6 +53,7 @@ kotlin {
             dependsOn(commonMain)
             dependencies {
                 implementation(libs.androidx.lifecycle.viewModel)
+                implementation(libs.sqldelight.android)
             }
         }
         val androidUnitTest by getting
@@ -64,6 +67,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
                 implementation(libs.ktor.darwin)
+                implementation(libs.sqldelight.native)
             }
         }
         val iosX64Test by getting
@@ -74,6 +78,14 @@ kotlin {
             iosX64Test.dependsOn(this)
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
+        }
+    }
+}
+
+sqldelight {
+    databases {
+        create("LinkdingDatabase") {
+            packageName.set("com.tomczyn.linkding.database")
         }
     }
 }

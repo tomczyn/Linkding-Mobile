@@ -8,6 +8,9 @@
 
 import Foundation
 import SwiftUI
+import KMMViewModelSwiftUI
+import KMPNativeCoroutinesCombine
+import shared
 
 enum HomeDestinations : Hashable {
     case allItems
@@ -20,24 +23,24 @@ enum HomeDestinations : Hashable {
 struct HomeScreen: View {
     
     var onLogout: () -> Void
+    @StateViewModel private var model = HomeViewModel()
     @State private var isLoading: Bool = true
     @State private var path: [HomeDestinations] = []
-    @State private var tags: [String] = ["Tag1", "Tag2", "Tag3"]
     @State private var isTagsSectionCollapsed: Bool = false
     @State private var search: String = ""
     
     var body: some View {
         NavigationStack(path: $path) {
             List {
-                NavigationLink("All items", value: HomeDestinations.allItems)
-                NavigationLink("Unread", value: HomeDestinations.unread)
-                NavigationLink("Untagged", value: HomeDestinations.untagged)
-                CollapsibleSection(title: "Tags") {
-                    ForEach(tags, id: \.self) { tag in
-                        NavigationLink(tag, value: HomeDestinations.tag(tag))
+                NavigationLink("home_all_items", value: HomeDestinations.allItems)
+                NavigationLink("home_unread", value: HomeDestinations.unread)
+                NavigationLink("home_untagged", value: HomeDestinations.untagged)
+                CollapsibleSection(title: "home_tags") {
+                    ForEach(model.state.tags, id: \.id) { tag in
+                        NavigationLink(tag.name, value: HomeDestinations.tag(tag.name))
                     }
                 }
-                NavigationLink("Trash", value: HomeDestinations.trash)
+                NavigationLink("home_trash", value: HomeDestinations.trash)
             }
             .navigationDestination(for: HomeDestinations.self) { destination in
                 switch destination {
