@@ -84,3 +84,8 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+#
+.DS_Store
+iosApp/.DS_Store
+iosApp/iosApp.xcodeproj/project.xcworkspace/xcuserdata/maciek.xcuserdatad/UserInterfaceState.xcuserstate
+iosApp/iosApp/.DS_Store
