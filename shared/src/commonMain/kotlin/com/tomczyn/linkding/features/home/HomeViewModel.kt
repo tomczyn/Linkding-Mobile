@@ -34,6 +34,10 @@ class HomeViewModel : KMMViewModel(), KoinComponent {
     @NativeCoroutinesState
     val state: StateFlow<HomeState> get() = _state
 
+    init {
+        refresh()
+    }
+
     fun refresh() {
         viewModelScope.coroutineScope.launch {
             repo.refreshTags()

@@ -48,8 +48,8 @@ struct LoginScreen: View {
             }
             .padding()
             // Disable user interaction when loading
-            .allowsHitTesting(!model.state.isLoading)
-            if model.state.isLoading {
+            .allowsHitTesting(!model.state_.isLoading)
+            if model.state_.isLoading {
                 Color.black.opacity(0.5).ignoresSafeArea()
                 ProgressView()
             }
@@ -61,7 +61,7 @@ struct LoginScreen: View {
             }
         }
         .alert(isPresented: Binding(get: {
-            model.state.error
+            model.state_.error
         }, set: { _, _ in
             model.resetError()
         })) {

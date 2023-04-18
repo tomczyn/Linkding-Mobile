@@ -37,7 +37,7 @@ struct HomeScreen: View {
                 NavigationLink("home_untagged", value: HomeDestinations.untagged)
                 CollapsibleSection(title: "home_tags") {
                     ForEach(model.state.tags, id: \.name) { tag in
-                        NavigationLink(tag.name, value: HomeDestinations.tag(tag.name))
+                        NavigationLink("\(tag.name) \(tag.numberOfBookmarks)", value: HomeDestinations.tag(tag.name))
                     }
                 }
                 NavigationLink("home_trash", value: HomeDestinations.trash)

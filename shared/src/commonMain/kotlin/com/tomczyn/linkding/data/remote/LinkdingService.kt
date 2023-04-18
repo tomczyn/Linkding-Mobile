@@ -30,6 +30,13 @@ class LinkdingService(
     }
 
     suspend fun getBookmarks(
+        url: String? = null
+    ): Response<ApiError, BookmarksResponse> {
+        val url = url ?: "$baseUrl/api/bookmarks/"
+        return httpClient.get(url)
+    }
+
+    suspend fun getBookmarks(
         search: String? = null,
         tags: List<String>? = null,
         untagged: Boolean? = null,

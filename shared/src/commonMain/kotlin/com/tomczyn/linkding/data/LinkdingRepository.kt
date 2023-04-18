@@ -24,7 +24,7 @@ class LinkdingRepository(
         var error = false
         val bookmarks = mutableListOf<Bookmark>()
         do {
-            service.getBookmarks()
+            service.getBookmarks(nextUrl)
                 .onRight { response ->
                     bookmarks.addAll(response.results.map(BookmarkRemote::toBookmark))
                     nextUrl = response.next
