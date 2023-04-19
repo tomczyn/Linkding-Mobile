@@ -1,8 +1,12 @@
+"home_title" = "Home";
 "home_all_items" = "All items";
 "home_unread" = "Unread";
 "home_untagged" = "Untagged";
 "home_tags" = "Tags";
 "home_trash" = "Archived";
+"sort_name" = "Sort by name";
+"sort_count" = "Sort by count";
+"add_link" = "Link";
 
 "login_title" = "Login";
 "login_token" = "Token";

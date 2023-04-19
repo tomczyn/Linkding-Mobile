@@ -1,7 +1,5 @@
 package com.tomczyn.linkding.data.remote
 
-import co.touchlab.kermit.Logger
-import com.tomczyn.linkding.LinkdingSettings
 import com.tomczyn.linkding.LinkdingSettings.HOST
 import com.tomczyn.linkding.Settings
 import com.tomczyn.linkding.common.Response

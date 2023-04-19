@@ -8,7 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 
-class LinkdingDao(
+class LocalDao(
     private val database: LinkdingDatabase
 ) {
     suspend fun getBookmarks(): List<BookmarkEntity> = database.databaseQueries.selectAllBookmarks()

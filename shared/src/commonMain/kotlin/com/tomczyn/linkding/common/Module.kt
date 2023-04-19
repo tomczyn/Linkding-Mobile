@@ -3,9 +3,9 @@
 package com.tomczyn.linkding.common
 
 import com.tomczyn.linkding.Settings
-import com.tomczyn.linkding.data.LinkdingRepository
+import com.tomczyn.linkding.data.BookmarksRepository
 import com.tomczyn.linkding.data.local.DriverFactory
-import com.tomczyn.linkding.data.local.LinkdingDao
+import com.tomczyn.linkding.data.local.LocalDao
 import com.tomczyn.linkding.data.local.createDatabase
 import com.tomczyn.linkding.data.remote.LinkdingService
 import com.tomczyn.linkding.database.LinkdingDatabase
@@ -19,7 +19,7 @@ fun appModule() = module {
     factory { LinkdingService(get<HttpClient>(), get<Settings>()) }
     factory { LoginUseCase(get<Settings>()) }
     single<LinkdingDatabase> { createDatabase(get<DriverFactory>()) }
-    single { LinkdingDao(get<LinkdingDatabase>()) }
-    single { LinkdingRepository(get<LinkdingDao>(), get<LinkdingService>()) }
-    factory { GetHomeScreenTagsUseCase(get<LinkdingRepository>()) }
+    single { LocalDao(get<LinkdingDatabase>()) }
+    single { BookmarksRepository(get<LocalDao>(), get<LinkdingService>()) }
+    factory { GetHomeScreenTagsUseCase(get<BookmarksRepository>()) }
 }

@@ -1,14 +1,14 @@
 package com.tomczyn.linkding.data
 
-import com.tomczyn.linkding.data.local.LinkdingDao
+import com.tomczyn.linkding.data.local.LocalDao
 import com.tomczyn.linkding.data.remote.BookmarkRemote
 import com.tomczyn.linkding.data.remote.LinkdingService
 import com.tomczyn.linkding.data.remote.TagRemote
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class LinkdingRepository(
-    private val dao: LinkdingDao,
+class BookmarksRepository(
+    private val dao: LocalDao,
     private val service: LinkdingService,
 ) {
 
