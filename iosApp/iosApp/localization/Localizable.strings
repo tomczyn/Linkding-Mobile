@@ -7,6 +7,7 @@
 "sort_name" = "Sort by name";
 "sort_count" = "Sort by count";
 "add_link" = "Link";
+"find_items" = "Find items";
 
 "login_title" = "Login";
 "login_token" = "Token";

@@ -17,6 +17,7 @@ enum HomeDestinations : Hashable {
     case unread
     case untagged
     case trash
+    case search(String)
     case tag(String)
 }
 
@@ -27,7 +28,6 @@ struct HomeScreen: View {
     @State private var isLoading: Bool = true
     @State private var path: [HomeDestinations] = []
     @State private var isTagsSectionCollapsed: Bool = false
-    @State private var search: String = ""
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -98,11 +98,36 @@ struct HomeScreen: View {
                     EmptyView()
                 case .tag(_):
                     EmptyView()
+                case .search(_):
+                    EmptyView()
                 }
             }
         }
-        .searchable(text: $search) {
-            EmptyView()
+        .searchable(text: Binding(get: {
+            model.state.search
+        }, set: { searchTerm in
+            model.search(term: searchTerm)
+        })) {
+            Section("find_items") {
+                NavigationLink(value: HomeDestinations.search(model.state.search)) {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        Text(model.state.search)
+                    }
+                }.buttonStyle(PlainButtonStyle())
+            }
+            Section("home_tags") {
+                ForEach(model.state.tagsSearch, id: \.name) { tag in
+                    NavigationLink(value: HomeDestinations.tag(tag.name)) {
+                        HStack {
+                            Image(systemName: "number")
+                            Text(tag.name)
+                            Spacer()
+                            Text("\(tag.numberOfBookmarks)")
+                        }
+                    }.buttonStyle(PlainButtonStyle())
+                }
+            }
         }
     }
 }

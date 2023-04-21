@@ -53,6 +53,19 @@ class HomeViewModel : KMMViewModel(), KoinComponent {
         }
     }
 
+    fun search(term: String) {
+        if (term.isBlank()) {
+            _state.update { it.copy(tagsSearch = emptyList(), search = term) }
+        } else {
+            _state.update { state ->
+                state.copy(
+                    tagsSearch = state.tags.filter { it.name.contains(term, ignoreCase = true) },
+                    search = term
+                )
+            }
+        }
+    }
+
     fun resetError() {
         _state.update { it.copy(error = false) }
     }
