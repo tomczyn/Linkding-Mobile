@@ -19,6 +19,7 @@ enum HomeDestinations : Hashable {
     case trash
     case search(String)
     case tag(String)
+    case bookmark(Bookmark)
 }
 
 struct HomeScreen: View {
@@ -96,9 +97,11 @@ struct HomeScreen: View {
                     EmptyView()
                 case .trash:
                     EmptyView()
-                case .tag(_):
-                    EmptyView()
+                case .tag(let tagName):
+                    BookmarksList(tag: tagName)
                 case .search(_):
+                    EmptyView()
+                case .bookmark(_):
                     EmptyView()
                 }
             }

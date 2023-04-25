@@ -42,6 +42,7 @@ kotlin {
                 implementation(libs.arrow.core)
                 implementation(libs.kermit)
                 implementation(libs.sqldelight.coroutines)
+                implementation(libs.kotlinx.datetime)
             }
         }
         val commonTest by getting {
