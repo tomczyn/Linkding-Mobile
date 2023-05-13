@@ -90,15 +90,19 @@ struct HomeScreen: View {
             .navigationDestination(for: HomeDestinations.self) { destination in
                 switch destination {
                 case .allItems:
-                    EmptyView()
+                    BookmarksList(filter: BookmarksListFilterAll())
                 case .unread:
+                    BookmarksList(filter: BookmarksListFilterUnread())
                     EmptyView()
                 case .untagged:
+                    BookmarksList(filter: BookmarksListFilterUntagged())
                     EmptyView()
                 case .trash:
+                    BookmarksList(filter: BookmarksListFilterArchived())
                     EmptyView()
                 case .tag(let tagName):
-                    BookmarksList(tag: tagName)
+                    BookmarksList(filter: BookmarksListFilterTagName(tag: tagName))
+                    EmptyView()
                 case .search(_):
                     EmptyView()
                 case .bookmark(_):

@@ -15,12 +15,12 @@ import WebKit
 
 struct BookmarksList: View {
     
-    let tag: String
+    let filter: BookmarksListFilter
     @StateViewModel private var model: BookmarksListViewModel
     
-    init(tag: String) {
-        self.tag = tag
-        self._model = StateViewModel(wrappedValue: BookmarksListViewModel(tag: tag))
+    init(filter: BookmarksListFilter) {
+        self.filter = filter
+        self._model = StateViewModel(wrappedValue: BookmarksListViewModel(filter: filter))
     }
     
     var body: some View {
