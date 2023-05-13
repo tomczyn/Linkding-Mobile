@@ -102,9 +102,8 @@ struct HomeScreen: View {
                     EmptyView()
                 case .tag(let tagName):
                     BookmarksList(filter: BookmarksListFilterTagName(tag: tagName))
-                    EmptyView()
-                case .search(_):
-                    EmptyView()
+                case .search(let search):
+                    BookmarksList(filter: BookmarksListFilterSearch(search: search))
                 case .bookmark(_):
                     EmptyView()
                 }

@@ -47,6 +47,14 @@ data class Bookmark(
                 host
             }
         }
+
+    fun contains(value: String): Boolean {
+        return title?.contains(value) == true ||
+                url?.contains(value) == true ||
+                description?.contains(value) == true ||
+                websiteTitle?.contains(value) == true ||
+                websiteDescription?.contains(value) == true
+    }
 }
 
 fun BookmarkRemote.toBookmark(): Bookmark {

@@ -6,4 +6,5 @@ sealed interface BookmarksListFilter {
     object Untagged : BookmarksListFilter
     object Archived : BookmarksListFilter
     data class TagName(val tag: String) : BookmarksListFilter
+    data class Search(val search: String): BookmarksListFilter
 }

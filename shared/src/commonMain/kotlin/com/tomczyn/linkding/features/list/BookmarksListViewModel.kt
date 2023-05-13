@@ -42,8 +42,8 @@ class BookmarksListViewModel(
                         is BookmarksListFilter.TagName -> bookmark.tagNames.contains(filter.tag)
                         BookmarksListFilter.Unread -> bookmark.unread
                         BookmarksListFilter.Untagged -> bookmark.tagNames.isEmpty()
+                        is BookmarksListFilter.Search -> bookmark.contains(filter.search)
                     }
-
                 }
             }
             .onEachToState { bookmarks, state -> state.copy(bookmarks = bookmarks) }
