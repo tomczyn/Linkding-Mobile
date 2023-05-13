@@ -1,5 +1,5 @@
 [versions]
-androidGradlePlugin = "7.4.2" # https://maven.google.com/web/index.html?q=com.android.tools.build#com.android.tools.build:gradle
+androidGradlePlugin = "8.0.1" # https://maven.google.com/web/index.html?q=com.android.tools.build#com.android.tools.build:gradle
 kotlin = "1.8.20" # https://github.com/JetBrains/kotlin/releases
 androidxComposeCompiler = "1.4.5" # https://developer.android.com/jetpack/androidx/releases/compose
 androidxComposeBom = "2023.04.00" # https://maven.google.com/web/index.html?q=compose-bom#androidx.compose:compose-bom
